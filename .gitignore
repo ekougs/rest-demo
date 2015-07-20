@@ -1,0 +1,27 @@
+# Eclipse
+.classpath
+.project
+.settings/
+
+# Intellij
+.idea/
+*.iml
+*.iws
+*.ipr
+out/
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
+*.log
+
+# Gradle
+build/
+.gradle/
+
+# Node
+node_modules/nbactions.xml
+/nb-configuration.xml
