@@ -3,6 +3,7 @@ version '0.1-SNAPSHOT'
 
 apply plugin: 'java'
 apply plugin: 'spring-boot'
+apply plugin: 'application'
 
 repositories {
   mavenLocal()
@@ -40,4 +41,18 @@ buildscript {
   dependencies {
     classpath("org.springframework.boot:spring-boot-gradle-plugin:1.2.5.RELEASE")
   }
+}
+
+jar {
+  manifest {
+    attributes 'Main-Class': 'com.zenika.restdemo.Application'
+  }
+}
+
+task launchInfra(type:Exec) {
+  commandLine './launch-shop-infrastructure.sh'
+}
+
+task stopAndDeleteInfra(type:Exec) {
+  commandLine './stop-delete-shop-infrastructure.sh'
 }
