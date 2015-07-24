@@ -1,6 +1,6 @@
 #!/bin/bash
 
-echo "--> This script stops and removes all containers and images for api-shop-server, api-shop-load-balancer and api-shop-front"
+echo "--> This script stops and removes all containers and images for shop api"
 echo ""
 echo ""
 
@@ -54,3 +54,4 @@ remove_container_if_exists "api-shop-load-balancer"
 remove_container_if_exists "api-shop-server-1"
 remove_container_if_exists "api-shop-server-2"
 remove_container_if_exists "api-shop-server-3"
+remove_container_if_exists "api-shop-mongo"

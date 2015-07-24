@@ -3,8 +3,6 @@ FROM ubuntu
 # Install nginx
 RUN apt-get update && apt-get install -y nginx
 
-VOLUME /var/log/nginx/api-shop-front:/var/log/nginx
-
 # Map logs
 RUN ln -sf /dev/stdout /var/log/nginx/access.log
 RUN ln -sf /dev/stderr /var/log/nginx/error.log
