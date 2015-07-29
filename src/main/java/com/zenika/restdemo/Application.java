@@ -1,11 +1,12 @@
 package com.zenika.restdemo;
 
+import com.mongodb.MongoClient;
 import com.zenika.restdemo.resources.HealthResource;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.mongodb.morphia.Morphia;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.PropertySource;
 
 /**
  * User: sennen
@@ -20,9 +21,29 @@ public class Application {
   }
 
   @Bean
+  public String mongoHost() {
+    return "api-shop-mongo";
+  }
+
+  @Bean
+  public String mongoDBName() {
+    return "shop";
+  }
+
+  @Bean
   public ResourceConfig jerseyConfig() {
     ResourceConfig resourceConfig = new ResourceConfig();
     resourceConfig.packages(true, HealthResource.class.getPackage().getName());
     return resourceConfig;
+  }
+
+  @Bean
+  public MongoClient mongoClient() {
+    return new MongoClient(mongoHost());
+  }
+
+  @Bean
+  public Morphia morphia() {
+    return new Morphia();
   }
 }

@@ -8,20 +8,15 @@ All the components are launched locally via Docker.
 Details to launch and stop the infrastructure are provided below.  
 
 ## What do you need ?
-JDK 8, Docker, Gradle
+JDK 8, Docker, Maven
 
 ## Build Java application and start/restart infrastructure
-###Instructions for first execution
 Following scripts **must have execution rights** : `./launch-shop-infrastructure.sh`,  `./stop-delete-shop-infrastructure.sh`.  
-Run `gradle install launchInfra`. It builds the project. Then it stops and removes Docker containers and images before rebuilding and launching each component.
-
-## Start/restart infrastructure
-Following scripts **must have execution rights** : `./launch-shop-infrastructure.sh`,  `./stop-delete-shop-infrastructure.sh`.  
-Run `gradle launchInfra`. It stops and removes Docker containers and images before rebuilding and launching each component.
+Run `./launch-shop-infrastructure.sh`. It builds the project. Then it stops and removes Docker containers and images before rebuilding and launching each component.
 
 ## Stop the infrastructure
 Following script **must have execution rights** :  `./stop-delete-shop-infrastructure.sh`.  
-Run `gradle stopAndDeleteInfra`. It stops and removes Docker containers.
+Run `./stop-delete-shop-infrastructure.sh`. It stops and removes Docker containers.
 
 ## Check if everything is deployed
 Run `docker ps`. You should get something like :  
@@ -37,3 +32,6 @@ b7e4ca71ac2a        api-shop-server:latest          "bash /usr/local/bin   About
 On Linux, you can check everything is fine by making HTTP GET request on `http://localhost:PORT_FOR_80/health`.  
 On MacOS, get boot2docker IP first `boot2docker ip`. Then you can check everything is fine by making HTTP GET request on `http://BOOT_2_DOCKER_IP:PORT_FOR_80/health`.  
 You will get a 200 and **Up and running!** if everything is fine.
+
+## About Mongo data
+Mongo is launched with wiredTiger storage engine and stored at ~/.mongo/api_shop_data

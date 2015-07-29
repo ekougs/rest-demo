@@ -1,7 +1,7 @@
 FROM java:8
 
-COPY build/install/rest-demo /usr/local/bin/api-shop-server
+COPY target/rest-demo-0.0.1.jar /usr/local/bin/api-shop-server.jar
 
 EXPOSE 8080
 
-CMD ["bash", "/usr/local/bin/api-shop-server/bin/rest-demo"]
+CMD ["java", "-jar", "/usr/local/bin/api-shop-server.jar"]
